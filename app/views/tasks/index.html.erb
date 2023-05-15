@@ -1,0 +1,15 @@
+<h1>Tasks</h1>
+
+
+
+<ul>
+<% @tasks.each do |task|%>
+<li><% if task.completed %><span>✅</span><% else %> <span>❗ </span> <% end %><%= link_to "#{task.title}", "/tasks/#{task.id}"%> <%= link_to "🗑️",
+  "/tasks/#{task.id}",
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%></li>
+<% end %>
+</ul>
+
+
+<p><%= link_to "✚ add task", "tasks/new"%></p>

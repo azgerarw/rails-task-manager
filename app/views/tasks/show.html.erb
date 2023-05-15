@@ -1,0 +1,15 @@
+<h2><%= @task.title %></h2>
+<%= link_to "✏️ edit task", "/tasks/#{@task.id}/edit"%>
+<%= link_to "🗑️ Delete",
+  "/tasks/#{@task.id}",
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%>
+<p> Reminder: <%= @task.details%></p>
+
+<% if @task.completed %>
+<p> Task is completed </p>
+<% else %>
+<p> Task is not completed yet</p>
+<% end %>
+
+<%= link_to "home", "/tasks"%>
